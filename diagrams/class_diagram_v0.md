@@ -7,8 +7,8 @@ classDiagram
     direction LR
 
     class Config {
-        +string Listen
-        +string Upstream
+        +string Bind
+        +int HttpPort
         +Duration ReadHeaderTimeout
         +Duration IdleTimeout
         +Duration DialTimeout
@@ -18,8 +18,9 @@ classDiagram
         +Validate() error
     }
 
+
     class Target {
-        -URL upstream
+        +TargetURL url
         -Client client
         +ServeHTTP(w, r)
     }
